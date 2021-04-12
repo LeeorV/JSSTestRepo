@@ -1,19 +1,21 @@
 *** Settings ***
 Documentation     A test suite containing one test that sleeps for a while.
-...				  The suite should pass successfully.
+...		  The suite should pass successfully.
 
 *** Variables ***
-${duration}			5
+${duration}	5
 
 *** Test Case ***
-Sleep for a while
-	Sleep for	   ${duration}
-  print Hello World!
-  print sandbox id      ${sandbox.id}
-
+Hello World with Delay
+	Print	${Hello World!}
+	Sleep	${duration}
 
 
 *** Keywords ***
-Sleep for
-	[Arguments]    ${duration}
-	sleep 		   ${duration}s
+Print
+	[Arguments]	${text}
+	Log		${text}
+
+Sleep
+	[Arguments]	${duration}
+	sleep		${duration}s
