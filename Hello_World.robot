@@ -7,7 +7,7 @@ ${duration}	5
 
 *** Test Case ***
 Hello World with Delay
-	Print	${Hello World!}
+	Print	Hello World!
 	Sleep	${duration}
 
 
