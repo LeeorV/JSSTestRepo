@@ -8,7 +8,7 @@ ${duration}	5
 *** Test Case ***
 Hello World with Delay
 	Print	Hello World!
-	Sleep	${duration}
+	Sleep for duration	${duration}
 
 
 *** Keywords ***
@@ -16,6 +16,6 @@ Print
 	[Arguments]	${text}
 	Log		${text}
 
-Sleep
+Sleep for duration
 	[Arguments]	${duration}
 	sleep		${duration}s
