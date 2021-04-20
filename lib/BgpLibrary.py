@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 import io
 from SandboxLibrary import SandboxLibrary
-import logging
+from robot.api import logger
 
 class BgpLibrary(object):
     def __init__(self):
@@ -24,7 +24,7 @@ class BgpLibrary(object):
         xml_string = self._trim_xml_only(bgp_reponse)
         bgp_info = ET.iterparse(io.StringIO(xml_string))
         bgp_info = self._remove_xml_namespace(bgp_info).find('bgp-information')
-        if bgp_info is None:
+        if not bgp_info:
             raise AssertionError("Could not find an active BGP")
         group_count = bgp_info.find('group-count').text
         if group_count != number:
