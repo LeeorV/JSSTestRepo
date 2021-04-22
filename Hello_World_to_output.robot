@@ -13,9 +13,9 @@ ${duration}	5
 
 *** Test Case ***
 Hello World with Delay
-	Print	${sandbox.id}
-#	Print to Sandbox	${sandbox.id}	Hello World
-#	Sleep for duration	${duration}
+	Sleep for duration	${duration}
+	Print	Hello World
+	Print to Sandbox	${sandbox.id}	Hello World
 
 *** Keywords ***
 Print
