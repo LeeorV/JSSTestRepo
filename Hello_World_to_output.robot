@@ -8,14 +8,14 @@ Documentation     A test suite containing one test that sleeps for a while.
 ${CloudShellAddress}             
 ${User}
 ${AuthToken}     
-${Domain}                    Demo Advanced
+${Domain}                    Global
 ${duration}	5
 
 *** Test Case ***
 Hello World with Delay
-	Print	Hello World!
-	Print to Sandbox	${sandbox.id}	Hello World
-	Sleep for duration	${duration}
+	Print	${sandbox.id}
+#	Print to Sandbox	${sandbox.id}	Hello World
+#	Sleep for duration	${duration}
 
 *** Keywords ***
 Print
