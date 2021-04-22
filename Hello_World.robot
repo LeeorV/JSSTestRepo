@@ -10,7 +10,6 @@ Hello World with Delay
 	Print	Hello World!
 	Sleep for duration	${duration}
 
-
 *** Keywords ***
 Print
 	[Arguments]	${text}
