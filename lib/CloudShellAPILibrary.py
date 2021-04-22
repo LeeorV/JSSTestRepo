@@ -11,5 +11,5 @@ class CloudShellAPILibrary(object):
         self.api_session = CloudShellAPISession(cloudshell_address, user, token_id=auth_token, domain=domain)
 
     def write_message(self, sandbox_id : str, message):
-        self.api_session.WriteMessageToReservationOutput(sandbox_id, message)
-        return
+        #self.api_session.WriteMessageToReservationOutput(str(sandbox_id), message)
+        print(f"Sandbox ID:{sandbox_id}, message:{message}")
