@@ -12,4 +12,4 @@ class CloudShellAPILibrary(object):
 
     def write_message(self, sandbox_id : str, message):
         #self.api_session.WriteMessageToReservationOutput(str(sandbox_id), message)
-        print(f"Sandbox ID:{sandbox_id}, message:{message}")
+        print(f"Sandbox ID:{sandbox_id} {type(sandbox_id)}, message:{message}")
