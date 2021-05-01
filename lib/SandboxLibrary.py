@@ -8,10 +8,11 @@ from robot.api import logger
 
 class SandboxLibrary(object):
 
-    def __init__(self, cloudshell_url, user, password, domain):
+    def __init__(self, cloudshell_url, user, token, domain):
         self.api = cloudshell_url + '/api'
         self.api_v2 = self.api + '/v2'
-        self.auth_token = self._login(self.api, user, password, domain)
+        # self.auth_token = self._login(self.api, user, password, domain)
+        self.auth_token = token
 
     @staticmethod
     def _get_headers(auth_token):
