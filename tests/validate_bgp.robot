@@ -9,8 +9,7 @@ Library           ../lib/SandboxLibrary.py  ${CloudShellURL}  ${User}  ${Passwor
 ${CiscoRouter}               Cisco Catalyst 3560
 ${CloudShellURL}        
 ${User}
-${AuthToken}     
-${User}
+${AuthToken}
 ${Domain}                    Demo Advanced
 ${IxNetwork}                 IxNetwork Controller Shell 2G
 ${JuniperRouter}             Juniper EX 4200
