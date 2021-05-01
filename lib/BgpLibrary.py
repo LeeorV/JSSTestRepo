@@ -21,12 +21,16 @@ class BgpLibrary(object):
         return message
 
     def validate_bgp_groups(self, bgp_reponse, number):
-        xml_string = self._trim_xml_only(bgp_reponse)
-        bgp_info = ET.iterparse(io.StringIO(xml_string))
-        bgp_info = self._remove_xml_namespace(bgp_info).find('bgp-information')
-        if not bgp_info:
-            raise AssertionError("Could not find an active BGP")
-        group_count = bgp_info.find('group-count').text
-        if group_count != number:
-            raise AssertionError("Expected {expected} neighbors but found: {found}"
-                                 .format(expected=number, found=group_count))
+        logger.info(bgp_response)
+        try:
+            xml_string = self._trim_xml_only(bgp_reponse)
+            bgp_info = ET.iterparse(io.StringIO(xml_string))
+            bgp_info = self._remove_xml_namespace(bgp_info).find('bgp-information')
+            if not bgp_info:
+                raise AssertionError("Could not find an active BGP")
+            group_count = bgp_info.find('group-count').text
+            if group_count != number:
+                raise AssertionError("Expected {expected} neighbors but found: {found}"
+                                    .format(expected=number, found=group_count))
+        except:
+            raise AssertionError(f"Could not parge the BGP result: {bgp_response}")
