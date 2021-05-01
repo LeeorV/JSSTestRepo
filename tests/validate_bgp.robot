@@ -3,7 +3,7 @@ Library           OperatingSystem
 Library           Collections
 Library           String
 Library           ../lib/BgpLibrary.py
-Library           ../lib/SandboxLibrary.py  ${CloudShellURL}  ${User}  ${Password}  ${Domain}
+Library           ../lib/SandboxLibrary.py  ${CloudShellURL}  ${User}  ${AuthToken}  ${Domain}
 
 *** Variables ***
 ${CiscoRouter}               Cisco Catalyst 3560

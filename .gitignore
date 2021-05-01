@@ -3,3 +3,4 @@ output.xml
 report.html
 lib/__pycache__/
 .idea/
+tests/variables.yaml

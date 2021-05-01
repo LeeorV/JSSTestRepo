@@ -12,7 +12,7 @@ class SandboxLibrary(object):
         self.api = cloudshell_url + '/api'
         self.api_v2 = self.api + '/v2'
         # self.auth_token = self._login(self.api, user, password, domain)
-        self.auth_token = token
+        self.auth_token = "Basic " + token
 
     @staticmethod
     def _get_headers(auth_token):
