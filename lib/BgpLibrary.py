@@ -20,10 +20,10 @@ class BgpLibrary(object):
     def test_message(self,message):
         return message
 
-    def validate_bgp_groups(self, bgp_reponse, number):
+    def validate_bgp_groups(self, bgp_response, number):
         logger.info(bgp_response)
         try:
-            xml_string = self._trim_xml_only(bgp_reponse)
+            xml_string = self._trim_xml_only(bgp_response)
             bgp_info = ET.iterparse(io.StringIO(xml_string))
             bgp_info = self._remove_xml_namespace(bgp_info).find('bgp-information')
             if not bgp_info:
