@@ -1,4 +1,5 @@
 log.html
 output.xml
 report.html
-lib/__pycache__/CloudShellAPILibrary.cpython-37.pyc
+lib/__pycache__/
+.idea/
