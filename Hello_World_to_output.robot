@@ -1,5 +1,5 @@
 *** Settings ***
-Library           lib/CloudShellAPILibrary.py  ${CloudShellAddress}  ${User}  ${AuthToken}  ${Domain}
+Library           lib/CloudShellAPILibrary.py  ${CloudShellAddress}  ${User}  ${AuthToken}  ${Domain} ${sandbox.id}
 
 Documentation     A test suite containing one test that sleeps for a while.
 ...		  The suite should pass successfully.
@@ -15,7 +15,7 @@ ${duration}	5
 Hello World with Delay
 	Sleep for duration	${duration}
 	Print	Hello World
-	Print to Sandbox	${sandbox.id}	Hello World
+	Print to Sandbox	Hello World from the Sandbox Output
 
 *** Keywords ***
 Print
