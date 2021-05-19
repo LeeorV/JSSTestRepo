@@ -38,5 +38,6 @@ Start Ixia Traffic
 Stop Ixia Traffic
 	Log	Stopping Ixia Traffic
 	CloudShellAPILibrary.Execute Command	TGN-01	Resource	IxiaStopTraffic
-	CloudShellAPILibrary.Execute Command	TGN-01	Resource	IxiaGetStatistics
+	${stats} = 	CloudShellAPILibrary.Execute Command	TGN-01	Resource	IxiaGetStatistics
+	Log ${stats}
 	CloudShellAPILibrary.Set Sandbox Status	Completed successfully	Traffic Run completed successfully

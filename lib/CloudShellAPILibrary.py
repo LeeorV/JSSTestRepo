@@ -23,7 +23,7 @@ class CloudShellAPILibrary(object):
         else:
             output = self.api_session.ExecuteCommand(self.sandbox_id, resource, resource_type, command_name)
 
-        return output
+        return output.Output
 
     def execute_blueprint_command(self, command_name, command_params: dict = {}):
         if command_params:
@@ -32,7 +32,7 @@ class CloudShellAPILibrary(object):
         else:
             output = self.api_session.ExecuteEnvironmentCommand(self.sandbox_id, command_name, printOutput=True)
 
-        return output
+        return output.Output
 
     def set_sandbox_status(self, status_name, status_reason):
         self.api_session.SetReservationLiveStatus(self.sandbox_id, status_name, status_reason)
