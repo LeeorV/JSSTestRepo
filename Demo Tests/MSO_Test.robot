@@ -13,15 +13,12 @@ ${duration}	5
 
 *** Test Case ***
 Perform MSO Flow
-	CloudShellAPILibrary.Write Message	Starting Test..
+	CloudShellAPILibrary.Write Sandbox Message	Starting Test..
 	CloudShellAPILibrary.Set Sandbox Status	In Progress	Testing is in Progress
 	HealthCheck All Devices
-	CloudShellAPILibrary.Write Message	Starting Traffic...
-	CloudShellAPILibrary.Set Sandbox Status	In Progress	Running Ixia Traffic
 	Start Ixia Traffic
 	Sleep for duration	60
 	Stop Ixia Traffic
-	CloudShellAPILibrary.Set Sandbox Status	Completed successfully	Traffic Run completed successfully
 
 *** Keywords ***
 Sleep for duration
@@ -34,9 +31,12 @@ HealthCheck All Devices
 
 Start Ixia Traffic
 	Log	Starting Ixia Traffic
+	CloudShellAPILibrary.Write Sandbox Message	Starting Traffic...
+	CloudShellAPILibrary.Set Sandbox Status	In Progress	Running Ixia Traffic
 	CloudShellAPILibrary.Execute Command	TGN-01	Resource	IxiaStartTraffic
 
 Stop Ixia Traffic
 	Log	Stopping Ixia Traffic
 	CloudShellAPILibrary.Execute Command	TGN-01	Resource	IxiaStopTraffic
 	CloudShellAPILibrary.Execute Command	TGN-01	Resource	IxiaGetStatistics
+	CloudShellAPILibrary.Set Sandbox Status	Completed successfully	Traffic Run completed successfully
