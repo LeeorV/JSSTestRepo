@@ -16,7 +16,7 @@ class CloudShellAPILibrary(object):
     def write_sandbox_message(self, message):
         self.api_session.WriteMessageToReservationOutput(self.sandbox_id, message)
 
-    def execute_command(self, resource, resource_type, command_name, command_params: dict):
+    def execute_command(self, resource, resource_type, command_name, command_params: dict = {}):
         if command_params:
             api_params = [InputNameValue(param.name, param.value) for param in command_params.items()]
             output = self.api_session.ExecuteCommand(self.sandbox_id, resource, resource_type, command_name, api_params)
