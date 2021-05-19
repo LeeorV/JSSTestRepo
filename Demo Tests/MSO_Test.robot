@@ -1,5 +1,5 @@
 *** Settings ***
-Library           ../lib/CloudShellAPILibrary.py  ${CloudShellAddress}  ${User}  ${AuthToken}  ${Domain} ${sandbox.id}
+Library           ../lib/CloudShellAPILibrary.py  ${CloudShellAddress}	${User}	${AuthToken}	${Domain}	${sandbox.id}
 
 Documentation     A test suite containing one test that sleeps for a while.
 ...		  The suite should pass successfully.
