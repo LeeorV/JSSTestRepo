@@ -1,7 +1,7 @@
 *** Settings ***
 Library	../lib/CloudShellAPILibrary.py  ${CloudShellAddress}	${User}	${AuthToken}	${Domain}	${sandbox.id}
 Library	../lib/CloudShellRobotHelperLibrary.py	${sandbox}
-Library SSHLibrary
+Library	SSHLibrary
 
 Documentation     A test suite that performs the testing flow of the MSO Blueprint automatically.
 
