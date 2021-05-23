@@ -44,17 +44,17 @@ Configure Cisco
 	Log	Configuring Cisco Router ${device.name}
 	Open Connection	${device.address}
 	Login	cisco	${Cisco_Pass}
-	${output} =	Execute Command	show ip interface brief
+	${output} =	SSHLibrary.Execute Command	show ip interface brief
 	Log ${output}
-	${output} =	Execute Command	show interfaces description
+	${output} =	SSHLibrary.Execute Command	show interfaces description
 	Log ${output}
-	${output} =	Execute Command	show hosts
+	${output} =	SSHLibrary.Execute Command	show hosts
 	Log ${output}
-	Execute Command	configure terminal
-	Execute Command	ip host ciena3916 2049 192.168.1.1
-	Execute Command	end
-	Execute Command	write memory
-	${output} =	Execute Command	show hosts
+	SSHLibrary.Execute Command	configure terminal
+	SSHLibrary.Execute Command	ip host ciena3916 2049 192.168.1.1
+	SSHLibrary.Execute Command	end
+	SSHLibrary.Execute Command	write memory
+	${output} =	SSHLibrary.Execute Command	show hosts
 	Log ${output}
 	Close All Connections
 
@@ -63,20 +63,20 @@ Configure Ciena
 	Log	Configuring Ciena CPE ${device.name}
 	Open Connection	${device.address}
 	Login	su	${Ciena_Pass}
-	Execute Command	vlan create vlan 10
-	Execute Command	vlan add vlan 10 port 2
-	Execute Command	vlan add vlan 10 port 3
-	Execute Command	vlan add vlan 10 port 6
-	Execute Command	vlan create vlan 100
-	Execute Command	vlan add vlan 100 port 4 
-	${output} =	Execute Command	vlan show
+	SSHLibrary.Execute Command	vlan create vlan 10
+	SSHLibrary.Execute Command	vlan add vlan 10 port 2
+	SSHLibrary.Execute Command	vlan add vlan 10 port 3
+	SSHLibrary.Execute Command	vlan add vlan 10 port 6
+	SSHLibrary.Execute Command	vlan create vlan 100
+	SSHLibrary.Execute Command	vlan add vlan 100 port 4 
+	${output} =	SSHLibrary.Execute Command	vlan show
 	Log ${output}
-	${output} =	Execute Command	port show port 2 statistics
+	${output} =	SSHLibrary.Execute Command	port show port 2 statistics
 	Log ${output}
-	Execute Command	port clear port 2 statistics
-	${output} =	Execute Command	port show port 2 statistics
+	SSHLibrary.Execute Command	port clear port 2 statistics
+	${output} =	SSHLibrary.Execute Command	port show port 2 statistics
 	Log ${output}
-	Execute Command	configuration save
+	SSHLibrary.Execute Command	configuration save
 	Close All Connections
 
 Configure Juniper
@@ -84,13 +84,13 @@ Configure Juniper
 	Log	Configuring Juniper Router ${device.name}
 	Open Connection	${device.address}
 	Login	juniper	${Juniper_pass}
-	Execute Command	configure
-	Execute Command	set system root-authentication plain-text-password newpassword
-	Execute Command	set system host-name JuniperEX4200-01
-	Execute Command	set system domain-name example.com
-	Execute Command	set system backup-router 10.0.0.1
-	Execute Command	set routing-options static route default nexthop 10.0.0.1 retain no-readvertise
-	${output} =	Execute Command	commit
+	SSHLibrary.Execute Command	configure
+	SSHLibrary.Execute Command	set system root-authentication plain-text-password newpassword
+	SSHLibrary.Execute Command	set system host-name JuniperEX4200-01
+	SSHLibrary.Execute Command	set system domain-name example.com
+	SSHLibrary.Execute Command	set system backup-router 10.0.0.1
+	SSHLibrary.Execute Command	set routing-options static route default nexthop 10.0.0.1 retain no-readvertise
+	${output} =	SSHLibrary.Execute Command	commit
 	Log ${output}
 	Close All Connections
 
