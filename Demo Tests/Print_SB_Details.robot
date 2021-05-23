@@ -9,12 +9,11 @@ ${duration}	5
 *** Test Case ***
 Print Sandbox Resources
 	${cisco} =	Get Resource By Model	Cisco CRS1
-	print ${cisco}
+	print	${cisco}
 	${Juniper} =	Get Resource By Model	MX960
-	print ${Juniper}
+	print	${Juniper}
 	${ciena} =	Get Resource By Model	Ciena 3916
-	print ${ciena}
-
+	print	${ciena}
 	Print	${sandbox.resources}
 
 *** Keywords ***
