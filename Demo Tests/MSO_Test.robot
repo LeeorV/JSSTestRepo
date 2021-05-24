@@ -46,20 +46,20 @@ Configure Cisco
 	Login	cisco	${Cisco_Pass}
 	Write	show ip interface brief
 	${output} =	Read
-	Log ${output}
+	Log	${output}
 	Write	show interfaces description
 	${output} =	Read
-	Log ${output}
+	Log	${output}
 	Write	show hosts
 	${output} =	Read
-	Log ${output}
+	Log	${output}
 	Write	configure terminal
 	Write	ip host ciena3916 2049 192.168.1.1
 	Write	end
 	Write	write memory
 	Write	show hosts
 	${output} =	Read
-	Log ${output}
+	Log	${output}
 	Close All Connections
 
 Configure Ciena
