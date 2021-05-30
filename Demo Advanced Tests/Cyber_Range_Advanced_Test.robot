@@ -1,5 +1,5 @@
 *** Settings ***
-Library	../lib/CloudShellAPILibrary.py  ${CloudShellAddress}	${User}	${AuthToken}	${Domain}	${sandbox.id}
+Library	../lib/CloudShellAPILibrary.py  ${CloudShellAddress}	${User}	${AuthToken}	Demo Advanced	${sandbox.id}
 Library	../lib/CloudShellRobotHelperLibrary.py	${sandbox}
 Library	SSHLibrary
 
@@ -10,7 +10,6 @@ ${CloudShellAddress}
 ${User}
 ${Juniper_pass}
 ${AuthToken}     
-${Domain}                    Demo Advanced
 ${duration}	5
 
 *** Test Case ***
