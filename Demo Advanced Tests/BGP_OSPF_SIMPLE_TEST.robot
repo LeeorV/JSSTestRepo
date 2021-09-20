@@ -8,7 +8,6 @@ Documentation     A test suite that performs the testing flow of the MSO Bluepri
 ${CloudShellAddress}             
 ${User}
 ${Cisco_pass}
-${Ciena_pass}
 ${Juniper_pass}
 ${AuthToken}     
 ${Domain}                    Global
