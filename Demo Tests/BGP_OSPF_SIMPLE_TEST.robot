@@ -38,7 +38,7 @@ Configure Cisco
 	Write	show ip interface brief
 	${output} =	Read
 	Log	
-  CloudShellAPILibrary.Write Sandbox Message    ${output}
-  Close All Connections
+  	CloudShellAPILibrary.Write Sandbox Message    ${output}
+  	Close All Connections
 
 
