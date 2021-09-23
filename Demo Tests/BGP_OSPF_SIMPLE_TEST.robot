@@ -26,7 +26,7 @@ Sleep for duration
 
 HealthCheck All Devices
 	Log	Health Checking all devices
-	CloudShellAPILibrary.Execute Blueprint Command	HealthCheck
+	CloudShellAPILibrary.Execute Blueprint Command	"Health Check All Resources"
 	${cisco} =	Get Resource By Model	Cisco1801
 	Configure Cisco	${cisco}
 
