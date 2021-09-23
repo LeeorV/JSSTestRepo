@@ -17,8 +17,8 @@ ${duration}	5
 Perform SIMPLE OSPF CHECK
 	CloudShellAPILibrary.Write Sandbox Message	Starting Test..
 	CloudShellAPILibrary.Set Sandbox Status	In Progress	Testing is in Progress
-  	HealthCheck All Devices
-  
+	HealthCheck All Devices
+
 *** Keywords ***
 Sleep for duration
 	[Arguments]	${duration}
@@ -27,7 +27,7 @@ Sleep for duration
 HealthCheck All Devices
 	Log	Health Checking all devices
 	CloudShellAPILibrary.Execute Blueprint Command	HealthCheck
-  	${cisco} =	Get Resource By Model	Cisco1801
+	${cisco} =	Get Resource By Model	Cisco1801
 	Configure Cisco	${cisco}
 
 Configure Cisco
@@ -37,8 +37,7 @@ Configure Cisco
 	Login	cisco	${Cisco_Pass}
 	Write	show ip interface brief
 	${output} =	Read
-	Log	
-  	CloudShellAPILibrary.Write Sandbox Message    ${output}
-  	Close All Connections
-
+	Log
+	CloudShellAPILibrary.Write Sandbox Message    ${output}
+	Close All Connections
 
