@@ -28,7 +28,7 @@ HealthCheck All Devices
     Log    Health Checking all devices
     CloudShellAPILibrary.Execute Blueprint Command    Health Check All Resources
     CloudShellAPILibrary.Write Sandbox Message    ${sandbox}
-    ${cisco} =    Get Resource By Model    Cisco1801
+    ${cisco} =    Get Resource By Model    cisco1801
     CloudShellAPILibrary.Write Sandbox Message    ${cisco}
     Configure Cisco    ${cisco}
 
