@@ -27,7 +27,7 @@ Sleep for duration
 Check BGP On All Devices
     Log    Health Checking all devices
     #CloudShellAPILibrary.Execute Blueprint Command    Health Check All Resources
-    ${cisco} =    CloudShellAPILibrary.Get Resource By Model    Cisco IOS Router 2G
+    ${cisco} =    CloudShellRobotHelperLibrary.Get Resource By Model    Cisco IOS Router 2G
     CloudShellAPILibrary.Write Sandbox Message    ${cisco}
     Check Cisco BGP Down    ${cisco}
 
