@@ -17,7 +17,7 @@ ${duration}	5
 Perform SIMPLE OSPF CHECK
     CloudShellAPILibrary.Write Sandbox Message    Starting Test..
     CloudShellAPILibrary.Set Sandbox Status    In Progress    Testing is in Progress
-    HealthCheck All Devices
+    Check BGP On All Devices
 
 *** Keywords ***
 Sleep for duration
