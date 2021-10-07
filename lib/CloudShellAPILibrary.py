@@ -32,7 +32,7 @@ class CloudShellAPILibrary(object):
     def set_sandbox_status(self, status_name, status_reason):
         self.api_session.SetReservationLiveStatus(self.sandbox_id, status_name, status_reason)
     
-    def get_resource_by_model(self,model):
+    def get_resource_by_resource_model_name(self,model):
         res_des = self.api_session.GetReservationDetails(self.sandbox_id).ReservationDescription
         resources = res_des.Resources
         for resource in resources:
