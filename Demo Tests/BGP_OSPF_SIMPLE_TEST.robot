@@ -38,7 +38,7 @@ Check Cisco BGP Down
     Log    Configuring Cisco Router ${device.Name}
     SSHLibrary.Open Connection    ${device.FullAddress}
     Login    root    ${Cisco_Pass}
-    Write    show ip bgp
+    Write    show ip bgp\n
     ${output} =    Read
     @{words} =    Split String    ${output}
     ${contains}=    Evaluate    "not" in """${words}"""
