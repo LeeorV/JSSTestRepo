@@ -33,10 +33,9 @@ Check BGP On All Devices
 
 Check Cisco BGP Down
     [Arguments]    ${device}
-    Log    Configuring Cisco Router ${device.name}
-    Open Connection    ${device.address}
+    Log    Configuring Cisco Router ${device.Name}
+    SSHLibrary.Open Connection    ${device.FullAddress}
     Login    root    ${Cisco_Pass}
-    Write    show ip interface brief
     Write    show ip bgp
     ${output} =    Read
     @{words} =    Split String    ${output}
