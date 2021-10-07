@@ -1,17 +1,17 @@
 *** Settings ***
-Documentation     A test suite that performs the testing flow of the MSO Blueprint automatically.
-Library           ../lib/CloudShellAPILibrary.py    ${CloudShellAddress}    ${User}    ${AuthToken}    ${Domain}    ${sandbox.id}
-Library           ../lib/CloudShellRobotHelperLibrary.py    ${sandbox}
-Library           SSHLibrary
+Library	../lib/CloudShellAPILibrary.py  ${CloudShellAddress}	${User}	${AuthToken}	${Domain}	${sandbox.id}
+Library	../lib/CloudShellRobotHelperLibrary.py	${sandbox}
+Library	SSHLibrary
 
+Documentation     A test suite that performs the testing flow of the MSO Blueprint automatically.
 *** Variables ***
-${CloudShellAddress}    ${EMPTY}
-${User}           ${EMPTY}
-${Cisco_pass}     ${EMPTY}
-${Juniper_pass}    ${EMPTY}
-${AuthToken}      ${EMPTY}
-${Domain}         Global
-${duration}       5
+${CloudShellAddress}             
+${User}
+${Cisco_pass}
+${Juniper_pass}
+${AuthToken}     
+${Domain}                    Global
+${duration}	5
 
 *** Test Case ***
 Perform SIMPLE OSPF CHECK
@@ -24,21 +24,23 @@ Sleep for duration
     [Arguments]    ${duration}
     sleep    ${duration}s
 
-HealthCheck All Devices
+Check BGP On All Devices
     Log    Health Checking all devices
-    CloudShellAPILibrary.Execute Blueprint Command    Health Check All Resources
-    CloudShellAPILibrary.Write Sandbox Message    ${sandbox}
-    ${cisco} =    Get Resource By Model    cisco1801
+    #CloudShellAPILibrary.Execute Blueprint Command    Health Check All Resources
+    ${cisco} =    CloudShellAPILibrary.Get Resource By Model    Cisco IOS Router 2G
     CloudShellAPILibrary.Write Sandbox Message    ${cisco}
-    Configure Cisco    ${cisco}
+    Check Cisco BGP Down    ${cisco}
 
-Configure Cisco
+Check Cisco BGP Down
     [Arguments]    ${device}
-    Log    Configuring Cisco Router ${device.name}
-    Open Connection    ${device.address}
-    Login    cisco    ${Cisco_Pass}
-    Write    show ip interface brief
+    Log    Configuring Cisco Router ${device.Name}
+    SSHLibrary.Open Connection    ${device.FullAddress}
+    Login    root    ${Cisco_Pass}
+    Write    show ip bgp
     ${output} =    Read
-    Log
+    @{words} =    Split String    ${output}
+    ${contains}=    Evaluate    "not" in """${words}"""
+    # Should Be False    ${contains}
+    Should Be Equal    ${contains}    ${TRUE}
     CloudShellAPILibrary.Write Sandbox Message    ${output}
     Close All Connections
