@@ -37,6 +37,7 @@ Check Cisco BGP Down
     SSHLibrary.Open Connection    ${device.FullAddress}
     Login    root    ${Cisco_Pass}
     Write    show ip bgp
+    sleep 1s
     ${output} =    Read
     @{words} =    Split String    ${output}
     ${contains}=    Evaluate    "not" in """${words}"""
