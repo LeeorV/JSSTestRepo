@@ -40,6 +40,9 @@ Check Cisco BGP Down
     Login    root    ${Cisco_Pass}
     Write    show ip bgp\n
     ${output} =    Read
+    Run Keyword If '{output}'!='${EMPTY}'
+        Write    show ip bgp\n
+        ${output} =    Read
     @{words} =    Split String    ${output}
     ${contains}=    Evaluate    "not" in """${words}"""
     # Should Be False    ${contains}
