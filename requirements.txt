@@ -8,3 +8,4 @@ robotframework-sshlibrary
 PyYAML >= 5.4.1
 cloudshell-automation-api>=2021.1,<2021.2
 requests
+setuptools<58
